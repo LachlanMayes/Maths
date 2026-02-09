@@ -1,6 +1,6 @@
 def get_parity_count(data_length):
-    """Calculates how many parity bits are needed for data length r."""
-    # Formula: 2^p >= r + p + 1
+    """Calculates how many parity bits are needed for data length."""
+    # Formula: 2^parity_bit >= data_length + parity_bit + 1
     parity_bits = 0
     while (2**parity_bits < data_length + parity_bits + 1):
         parity_bits += 1
@@ -99,11 +99,11 @@ def hamming_correct(encoded_data):
 
 # --- MAIN EXECUTION ---
 
-# 1. Encode the data from Slide 36 (Data: 1001101)
+# 1. Encode the data
 my_data = "1001101"
 encoded = hamming_encode(my_data)
 
-# 2. Simulate an Error (Like Slide 37)
+# 2. Simulate an Error
 # Let's flip the bit at position 7 (Change '0' to '1')
 # Note: String index is 6 because Python starts at 0
 received_with_error = list(encoded)
