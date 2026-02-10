@@ -112,3 +112,24 @@ received_with_error = "".join(received_with_error)
 
 # 3. Detect and Correct
 hamming_correct(received_with_error)
+
+
+def calculate_hamming_distance(string1, string2):
+    # The strings must be the same length
+    if len(string1) != len(string2):
+        return "Error: Strings must be the same length"
+    
+    distance = 0
+    # Loop through every bit
+    for i in range(len(string1)):
+        # If they are different, add 1 to distance
+        if string1[i] != string2[i]:
+            distance += 1
+            
+    return distance
+
+# Word 1: 10001001
+# Word 2: 10110001
+d = calculate_hamming_distance("10001001", "10110001")
+print(f"Hamming Distance: {d}") 
+# Output will be 3
